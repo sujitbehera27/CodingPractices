@@ -12,6 +12,7 @@
 10>Comment your code! It helps reduce time spent troubleshooting JavaScript functions.
 11>Don't waste your time with <!-- --> comments surrounding your inline javascript, unless you care about Netscape 4. :)
 12>Organize your code as an Object Literal/Singleton, in the Module Pattern, or as an Object with constructors.
+
 13>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number.
  When specifying any global variable, clearly identify it
  1.window.globalVar = { ... }
