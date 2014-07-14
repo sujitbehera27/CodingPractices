@@ -121,4 +121,25 @@ $('body').append(table);
 
 window.alert("Done!");
 ```
-17>
+17>Really long function chains.
+Function chaining like this can be really handy:
+
+```js
+$('.some-element').click(handleClick).parents('.container')[0].slideDown();
+```
+
+This terse, abbreviated form of jQuery can be very clear and good for performance.  But you can also get yourself into trouble.
+
+In the above example, if the `.container` selector returns no results, you'll encounter a JavaScript error.
+
+Function chaining is great, but be wary of null or undefined values coming back mid-chain.
+18> Putting all variable declarations at the top.
+Many JavaScript developers prefer to list all variable declarations at the top of a block, rather than peppering them throughout.  The argument is usually that the JavaScript language hoists variables to the top of a block anyway, so you might as well write your code to reflect that.
+
+However write it for the people after you who will have to understand it.  
+19>Obsessing over strict equality.
+
+The difference between `==` and `===` is important in JavaScript, _especially_ when checking against falsiness/truthiness.
+
+But with that exception, it's not something I lose a lot of sleep over.  Yes, you should endeavour to use `===`, but this isn't the sort of thing that I would turn into a religious war.
+20>
