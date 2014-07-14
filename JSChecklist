@@ -1,23 +1,23 @@
-###1>99% of code should be housed in external javascript files. They should be included at the END of the BODY tag for maximum page performance.
-###2>Don't rely on the user-agent string. Do proper feature detection. (More at Dive Into HTML5: Detection & jQuery.support docs)
-###3>Don't use document.write().
-###4>All Boolean variables should start with "is".
+1>99% of code should be housed in external javascript files. They should be included at the END of the BODY tag for maximum page performance.
+2>Don't rely on the user-agent string. Do proper feature detection. (More at Dive Into HTML5: Detection & jQuery.support docs)
+3>Don't use document.write().
+4>All Boolean variables should start with "is".
  Test for positive conditions
  1.isValid = (test.value >= 4 && test.success);
-###5>Name variables and functions logically: For example: popUpWindowForAd rather than myWindow.
-###6>Don't manually minify. With the exception of the traditional i, etc. for for loops, variables should be long enough to be meaningful.
-###7>Documentation should follow NaturalDocs structure.
-###8>Constants or configuration variables (like animation durations, etc.) should be at the top of the file.
-###9>Strive to create functions which can be generalized, take parameters, and return values. This allows for substantial code reuse and, when combined with includes or external scripts, can reduce the overhead when scripts need to change. For example, instead of hard coding a pop-window with window size, options, and url, consider creating a function which takes size, url, and options as variables.
-###10>Comment your code! It helps reduce time spent troubleshooting JavaScript functions.
-###11>Don't waste your time with <!-- --> comments surrounding your inline javascript, unless you care about Netscape 4. :)
-###12>Organize your code as an Object Literal/Singleton, in the Module Pattern, or as an Object with constructors.
-###13>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number.
+5>Name variables and functions logically: For example: popUpWindowForAd rather than myWindow.
+6>Don't manually minify. With the exception of the traditional i, etc. for for loops, variables should be long enough to be meaningful.
+7>Documentation should follow NaturalDocs structure.
+8>Constants or configuration variables (like animation durations, etc.) should be at the top of the file.
+9>Strive to create functions which can be generalized, take parameters, and return values. This allows for substantial code reuse and, when combined with includes or external scripts, can reduce the overhead when scripts need to change. For example, instead of hard coding a pop-window with window size, options, and url, consider creating a function which takes size, url, and options as variables.
+10>Comment your code! It helps reduce time spent troubleshooting JavaScript functions.
+11>Don't waste your time with <!-- --> comments surrounding your inline javascript, unless you care about Netscape 4. :)
+12>Organize your code as an Object Literal/Singleton, in the Module Pattern, or as an Object with constructors.
+13>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number.
  When specifying any global variable, clearly identify it
  1.window.globalVar = { ... }
-###14>Developers often come into JavaScript expecting it to behave like classical OOP languages. And this is totally understandable, because JavaScript's syntax would put you under that impression.
+14>Developers often come into JavaScript expecting it to behave like classical OOP languages. And this is totally understandable, because JavaScript's syntax would put you under that impression.
 But JavaScript is absolutely not a classically object-oriented language. It's very different from Java, C++, C#, or PHP. It's function-driven, and the way you program in JavaScript requires a bit of a mental paradigm shift.
-###15>Inlining the crap out of functions and object literals.
+15>Inlining the crap out of functions and object literals.
 I don't know about you, but I find nested code like this to be really hard to follow:
 
 ```js
@@ -73,7 +73,8 @@ This kind of code is problematic because:
 * It causes major readability and maintainability issues
 * It prevents you from reusing some of those nested functions
 * It prevents you from using the `unbind()`/`bind()` trick mentioned above.
-###16>Causing excessive document reflows.
+
+16>Causing excessive document reflows.
 DOM modification is slow, because in addition to rebuilding the DOM tree, the browser must recalculate all element dimensions and see how they fit together.  This is _especially_ a problem when your elements are positioned via `static` (the default) or `relative` - and this is almost always the case.
 
 This is will make the user's browser stutter:
