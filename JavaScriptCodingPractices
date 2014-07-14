@@ -1,46 +1,41 @@
- JavaScript Files
+1> JAVASCRIPT FILES
+===================
 
 JavaScript programs should be stored in and delivered as .js files.
-
 JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
-
 <script src=filename.js> tags should be placed as late in the body as possible. This reduces the effects of delays imposed by script loading on other page components. There is no need to use the language or type attributes. It is the server, not the script tag, that determines the MIME type.
-Indentation
+
+2>INDENTATION
+============
 
 The unit of indentation is four spaces. Use of tabs should be avoided because (as of this writing in the 21st Century) there still is not a standard for the placement of tabstops. The use of spaces can produce a larger filesize, but the size is not significant over local networks, and the difference is eliminated by minification.
-Line Length
 
+3>LINE LENGTH
+=============
 Avoid lines longer than 80 characters. When a statement will not fit on a single line, it may be necessary to break it. Place the break after an operator, ideally after a comma. A break after an operator decreases the likelihood that a copy-paste error will be masked by semicolon insertion. The next line should be indented 8 spaces.
-Comments
 
+4>COMMENTS
+==========
 Be generous with comments. It is useful to leave information that will be read at a later time by people (possibly yourself) who will need to understand what you have done. The comments should be well-written and clear, just like the code they are annotating. An occasional nugget of humor might be appreciated. Frustrations and resentments will not.
-
 It is important that comments be kept up-to-date. Erroneous comments can make programs even harder to read and understand.
-
 Make comments meaningful. Focus on what is not immediately visible. Don't waste the reader's time with stuff like
-
     i = 0; // Set i to zero.
-
 Generally use line comments. Save block comments for formal documentation.
-Variable Declarations
 
+5>VARIABLE DECLARATIONS
+=======================
 All variables should be declared before used. JavaScript does not require this, but doing so makes the program easier to read and makes it easier to detect undeclared variables that may become implied globals. Implied global variables should never be used. Use of global variables should be minimized.
-
 The var statement should be the first statement in the function body.
-
 It is preferred that each variable be given its own line and comment. They should be listed in alphabetical order if possible.
-
     var currentEntry, // currently selected table entry
         level,        // indentation level
         size;         // size of table
-
 JavaScript does not have block scope, so defining variables in blocks can confuse programmers who are experienced with other C family languages. Define all variables at the top of the function.
-Function Declarations
 
+6>FUNCTION DECLARATIONS
+=======================
 All functions should be declared before they are used. Inner functions should follow the var statement. This helps make it clear what variables are included in its scope.
-
 There should be no space between the name of a function and the ( (left parenthesis) of its parameter list. There should be one space between the ) (right parenthesis) and the { (left curly brace) that begins the statement body. The body itself is indented four spaces. The } (right curly brace) is aligned with the line containing the beginning of the declaration of the function.
-
     function outer(c, d) {
         var e = c * d;
 
@@ -114,7 +109,8 @@ var collection = (function () {
     };
 }());
 
-Names
+7>NAMES
+=========
 
 Names should be formed from the 26 upper and lower case letters (A .. Z, a .. z), the 10 digits (0 .. 9), and _ (underbar). Avoid use of international characters because they may not read well or be understood everywhere. Do not use $ (dollar sign) or \ (backslash) in names.
 
@@ -125,126 +121,139 @@ Most variables and functions should start with a lower case letter.
 Constructor functions that must be used with the new prefix should start with a capital letter. JavaScript issues neither a compile-time warning nor a run-time warning if a required new is omitted. Bad things can happen if new is not used, so the capitalization convention is the only defense we have.
 
 Global variables should be in all caps. (JavaScript does not have macros or constants, so there isn't much point in using all caps to signify features that JavaScript doesn't have.)
-Statements
-Simple Statements
 
+7>STATEMENTS
+=============
+
+7.1 Simple Statements
+---------------------
 Each line should contain at most one statement. Put a ; (semicolon) at the end of every simple statement. Note that an assignment statement that is assigning a function literal or object literal is still an assignment statement and must end with a semicolon.
 
 JavaScript allows any expression to be used as a statement. This can mask some errors, particularly in the presence of semicolon insertion. The only expressions that should be used as statements are assignments and invocations.
-Compound Statements
 
+7.2 Compound Statements
+----------------------
 Compound statements are statements that contain lists of statements enclosed in { } (curly braces).
 
-    The enclosed statements should be indented four more spaces.
-    The { (left curly brace) should be at the end of the line that begins the compound statement.
-    The } (right curly brace) should begin a line and be indented to align with the beginning of the line containing the matching { (left curly brace).
-    Braces should be used around all statements, even single statements, when they are part of a control structure, such as an if or for statement. This makes it easier to add statements without accidentally introducing bugs.
+    ==>The enclosed statements should be indented four more spaces.
+    ==>#The { (left curly brace) should be at the end of the line that begins the compound statement.
+    ==>The } (right curly brace) should begin a line and be indented to align with the beginning of the line containing the matching { (left 	       curly brace).
+    ==>Braces should be used around all statements, even single statements, when they are part of a control structure, such as an if or for          statement. This makes it easier to add statements without accidentally introducing bugs.
 
-Labels
+7.3 Labels
+----------
 
 Statement labels are optional. Only these statements should be labeled: while, do, for, switch.
-return Statement
 
-A return statement with a value should not use ( ) (parentheses) around the value. The return value expression must start on the same line as the return keyword in order to avoid semicolon insertion.
-if Statement
+	return Statement------------------------------------------------
 
-The if class of statements should have the following form:
+		A return statement with a value should not use ( ) (parentheses) around the value. The return value expression must start on                  the same line as the return keyword in order to avoid semicolon insertion.
 
-    if (condition) {
-        statements
-    }
-    
-    if (condition) {
-        statements
-    } else {
-        statements
-    }
-    
-    if (condition) {
-        statements
-    } else if (condition) {
-        statements
-    } else {
-        statements
-    }
-for Statement
+	if Statement---------------------------------------------------
 
-A for class of statements should have the following form:
+		The if class of statements should have the following form:
+		
+		    if (condition) {
+		        statements
+		    }
+		    
+		    if (condition) {
+		        statements
+		    } else {
+		        statements
+		    }
+		    
+		    if (condition) {
+		        statements
+		    } else if (condition) {
+		        statements
+		    } else {
+		        statements
+		    }
+		    
+	for Statement----------------------------------------------------
 
-    for (initialization; condition; update) {
-        statements
-    }
+		A for class of statements should have the following form:
+		
+		    for (initialization; condition; update) {
+		        statements
+		    }
+		
+		    for (variable in object) {
+		        if (filter) {
+		            statements
+		        }
+		    }
 
-    for (variable in object) {
-        if (filter) {
-            statements
-        }
-    }
+		The first form should be used with arrays and with loops of a predeterminable number of iterations.
+		
+		The second form should be used with objects. Be aware that members that are added to the prototype of the object will be                      included in the enumeration. It is wise to program defensively by using the hasOwnProperty method to distinguish the true                     members of the object:
+		
+		    for (variable in object) {
+		        if (object.hasOwnProperty(variable)) {
+		            statements
+		        }
+		    }
+	while Statement------------------------------------------------
+	
+	A while statement should have the following form:
+	
+	    while (condition) {
+	        statements
+	    }
+	    
+	do Statement------------------------------------------------
 
-The first form should be used with arrays and with loops of a predeterminable number of iterations.
+	A do statement should have the following form:
+	
+	    do {
+	        statements
+	    } while (condition);
+	
+	Unlike the other compound statements, the do statement always ends with a ; (semicolon).
+	
+	switch Statement----------------------------------------------
+	
+	A switch statement should have the following form:
+	
+	    switch (expression) {
+	    case expression:
+	        statements
+	    default:
+	        statements
+	    }
+	
+	Each case is aligned with the switch. This avoids over-indentation. A case label is not a statement, and should not be indented like one.
+	
+	Each group of statements (except the default) should end with break, return, or throw. Do not fall through.
+	
+	try Statement-------------------------------------------------------
+	
+	The try class of statements should have the following form:
+	
+	    try {
+	        statements
+	    } catch (variable) {
+	        statements
+	    }
+	
+	    try {
+	        statements
+	    } catch (variable) {
+	        statements
+	   } finally {
+	        statements
+	    }
+	    
+	continue Statement.................................................
+	
+	Avoid use of the continue statement. It tends to obscure the control flow of the function.
+	with Statement
+	
+	The with statement should not be used.
 
-The second form should be used with objects. Be aware that members that are added to the prototype of the object will be included in the enumeration. It is wise to program defensively by using the hasOwnProperty method to distinguish the true members of the object:
-
-    for (variable in object) {
-        if (object.hasOwnProperty(variable)) {
-            statements
-        }
-    }
-while Statement
-
-A while statement should have the following form:
-
-    while (condition) {
-        statements
-    }
-do Statement
-
-A do statement should have the following form:
-
-    do {
-        statements
-    } while (condition);
-
-Unlike the other compound statements, the do statement always ends with a ; (semicolon).
-switch Statement
-
-A switch statement should have the following form:
-
-    switch (expression) {
-    case expression:
-        statements
-    default:
-        statements
-    }
-
-Each case is aligned with the switch. This avoids over-indentation. A case label is not a statement, and should not be indented like one.
-
-Each group of statements (except the default) should end with break, return, or throw. Do not fall through.
-try Statement
-
-The try class of statements should have the following form:
-
-    try {
-        statements
-    } catch (variable) {
-        statements
-    }
-
-    try {
-        statements
-    } catch (variable) {
-        statements
-   } finally {
-        statements
-    }
-continue Statement
-
-Avoid use of the continue statement. It tends to obscure the control flow of the function.
-with Statement
-
-The with statement should not be used.
-Whitespace
-
+8>WHITESPACE
+=============
 Blank lines improve readability by setting off sections of code that are logically related.
 
 Blank spaces should be used in the following circumstances:
@@ -259,7 +268,8 @@ Blank spaces should be used in the following circumstances:
     Each ; (semicolon) in the control part of a for statement should be followed with a space.
     Whitespace should follow every , (comma).
 
-Bonus Suggestions
+9>Suggestions
+=============
 {} and []
 
 Use {} instead of new Object(). Use [] instead of new Array().
