@@ -1,0 +1,17 @@
+1>99% of code should be housed in external javascript files. They should be included at the END of the BODY tag for maximum page performance.
+2>Don't rely on the user-agent string. Do proper feature detection. (More at Dive Into HTML5: Detection & jQuery.support docs)
+3>Don't use document.write().
+4>All Boolean variables should start with "is".
+ Test for positive conditions
+ 1.isValid = (test.value >= 4 && test.success);
+5>Name variables and functions logically: For example: popUpWindowForAd rather than myWindow.
+6>Don't manually minify. With the exception of the traditional i, etc. for for loops, variables should be long enough to be meaningful.
+7>Documentation should follow NaturalDocs structure.
+8>Constants or configuration variables (like animation durations, etc.) should be at the top of the file.
+9>Strive to create functions which can be generalized, take parameters, and return values. This allows for substantial code reuse and, when combined with includes or external scripts, can reduce the overhead when scripts need to change. For example, instead of hard coding a pop-window with window size, options, and url, consider creating a function which takes size, url, and options as variables.
+10>Comment your code! It helps reduce time spent troubleshooting JavaScript functions.
+11>Don't waste your time with <!-- --> comments surrounding your inline javascript, unless you care about Netscape 4. :)
+12>Organize your code as an Object Literal/Singleton, in the Module Pattern, or as an Object with constructors.
+13>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number.
+ When specifying any global variable, clearly identify it
+ 1.window.globalVar = { ... }
