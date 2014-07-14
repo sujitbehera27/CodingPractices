@@ -15,3 +15,61 @@
 13>Minimize global variables - the less globals you create, the better. Generally one, for your application namespace, is a good number.
  When specifying any global variable, clearly identify it
  1.window.globalVar = { ... }
+14>Developers often come into JavaScript expecting it to behave like classical OOP languages. And this is totally understandable, because JavaScript's syntax would put you under that impression.
+But JavaScript is absolutely not a classically object-oriented language. It's very different from Java, C++, C#, or PHP. It's function-driven, and the way you program in JavaScript requires a bit of a mental paradigm shift.
+15>Inlining the crap out of functions and object literals.
+I don't know about you, but I find nested code like this to be really hard to follow:
+
+```js
+var name = 'Steve Kwan';
+var company = 'Electronic Arts';
+
+var myFunction = function()
+{
+    $('form#my-form').submit
+    (
+        function(event)
+        {
+            event.preventDefault();
+            $.ajax
+            (
+                '/some_service',
+                {
+                    type: "POST",
+                    data:
+                    {
+                        name: name,
+                        name: company
+                    },
+                    success: function(data)
+                    {
+                        callSomeCompletionFunction
+                        (
+                            {
+                                response1: data.value1,
+                                response2: data.value2
+                            }
+                        )
+                    },
+                    error: function(data)
+                    {
+                        callSomeErrorHandler
+                        (
+                            {
+                                response1: data.value1,
+                                response2: data.value2
+                            }
+                        )
+                    }
+                }
+            );
+        }
+    );
+};
+```
+
+This kind of code is problematic because:
+
+* It causes major readability and maintainability issues
+* It prevents you from reusing some of those nested functions
+* It prevents you from using the `unbind()`/`bind()` trick mentioned above.
