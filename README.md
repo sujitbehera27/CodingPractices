@@ -1,3 +1,4 @@
 CodingPractices
 ===============
-Place to document all best practices in coding in sdifferent languages
+Check wiki 
+https://github.com/sujitbehera27/CodingPractices/wiki
